@@ -1,0 +1,25 @@
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h2>Lista de Cursos</h2>
+    <div>
+      <button (click)="crearCurso()" style="padding: 10px 20px; background: #28a745; color: white; border: none; margin-right: 10px;">
+        Crear Curso
+      </button>
+      <button (click)="logout()" style="padding: 10px 20px; background: #dc3545; color: white; border: none;">
+        Cerrar Sesión
+      </button>
+    </div>
+  </div>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+    <div *ngFor="let curso of cursos" style="border: 1px solid #ddd; padding: 20px; border-radius: 5px;">
+      <h3>{{ curso.nombre | uppercase }}</h3>
+      <p><strong>Descripción:</strong> {{ curso.descripcion }}</p>
+      <p><strong>Instructor:</strong> {{ curso.instructor }}</p>
+      <p><strong>Duración:</strong> {{ curso.duracion | horas }}</p>
+      <p><strong>Nivel:</strong> {{ curso.nivel }}</p>
+      <p><strong>Precio:</strong> ${{ curso.precio }}</p>
+      <p><strong>Categoría:</strong> {{ curso.categoria }}</p>
+    </div>
+  </div>
+</div>

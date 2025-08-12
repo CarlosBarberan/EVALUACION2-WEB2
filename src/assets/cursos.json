@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Angular Básico",
+    "descripcion": "Curso introductorio a Angular",
+    "instructor": "Juan Pérez",
+    "duracion": 40,
+    "nivel": "Principiante",
+    "precio": 299.99,
+    "categoria": "Desarrollo Web"
+  },
+  {
+    "id": 2,
+    "nombre": "React Avanzado",
+    "descripcion": "Patrones avanzados en React",
+    "instructor": "María García",
+    "duracion": 60,
+    "nivel": "Avanzado",
+    "precio": 399.99,
+    "categoria": "Desarrollo Web"
+  }
+]

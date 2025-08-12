@@ -1,0 +1,80 @@
+<div style="max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ccc;">
+  <h2>Crear Nuevo Curso</h2>
+  
+  <form [formGroup]="cursoForm" (ngSubmit)="onSubmit()">
+    <div style="margin-bottom: 15px;">
+      <label>Nombre del Curso:</label>
+      <input type="text" formControlName="nombre" style="width: 100%; padding: 8px;">
+      <div *ngIf="cursoForm.get('nombre')?.invalid && cursoForm.get('nombre')?.touched" style="color: red; font-size: 12px;">
+        <span *ngIf="cursoForm.get('nombre')?.errors?.['required']">El nombre es requerido</span>
+        <span *ngIf="cursoForm.get('nombre')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Descripción:</label>
+      <textarea formControlName="descripcion" style="width: 100%; padding: 8px; height: 80px;"></textarea>
+      <div *ngIf="cursoForm.get('descripcion')?.invalid && cursoForm.get('descripcion')?.touched" style="color: red; font-size: 12px;">
+        <span *ngIf="cursoForm.get('descripcion')?.errors?.['required']">La descripción es requerida</span>
+        <span *ngIf="cursoForm.get('descripcion')?.errors?.['minlength']">La descripción debe tener al menos 10 caracteres</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Instructor:</label>
+      <input type="text" formControlName="instructor" style="width: 100%; padding: 8px;">
+      <div *ngIf="cursoForm.get('instructor')?.invalid && cursoForm.get('instructor')?.touched" style="color: red; font-size: 12px;">
+        <span *ngIf="cursoForm.get('instructor')?.errors?.['required']">El instructor es requerido</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Duración (horas):</label>
+      <input type="number" formControlName="duracion" style="width: 100%; padding: 8px;">
+      <div *ngIf="cursoForm.get('duracion')?.invalid && cursoForm.get('duracion')?.touched" style="color: red; font-size: 12px;">
+        <span *ngIf="cursoForm.get('duracion')?.errors?.['required']">La duración es requerida</span>
+        <span *ngIf="cursoForm.get('duracion')?.errors?.['min']">La duración debe ser al menos 1 hora</span>
+        <span *ngIf="cursoForm.get('duracion')?.errors?.['max']">La duración no puede exceder 200 horas</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Nivel:</label>
+      <select formControlName="nivel" style="width: 100%; padding: 8px;">
+        <option value="">Seleccione un nivel</option>
+        <option value="Principiante">Principiante</option>
+        <option value="Intermedio">Intermedio</option>
+        <option value="Avanzado">Avanzado</option>
+      </select>
+      <div *ngIf="cursoForm.get('nivel')?.invalid && cursoForm.get('nivel')?.touched" style="color: red; font-size: 12px;">
+        <span *ngIf="cursoForm.get('nivel')?.errors?.['required']">El nivel es requerido</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Precio:</label>
+      <input type="number" formControlName="precio" step="0.01" style="width: 100%; padding: 8px;">
+      <div *ngIf="cursoForm.get('precio')?.invalid && cursoForm.get('precio')?.touched" style="color: red; font-size: 12px;">
+        <span *ngIf="cursoForm.get('precio')?.errors?.['required']">El precio es requerido</span>
+        <span *ngIf="cursoForm.get('precio')?.errors?.['min']">El precio debe ser al menos $0</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Categoría:</label>
+      <input type="text" formControlName="categoria" style="width: 100%; padding: 8px;">
+      <div *ngIf="cursoForm.get('categoria')?.invalid && cursoForm.get('categoria')?.touched" style="color: red; font-size: 12px;">
+        <span *ngIf="cursoForm.get('categoria')?.errors?.['required']">La categoría es requerida</span>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+      <button type="submit" [disabled]="cursoForm.invalid" style="padding: 10px 20px; background: #28a745; color: white; border: none;">
+        Crear Curso
+      </button>
+      <button type="button" (click)="cancelar()" style="padding: 10px 20px; background: #6c757d; color: white; border: none;">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
